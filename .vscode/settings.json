@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "*.toml": "rust",
+        "*.py": "python",
+        "unistd.h": "c"
+    }
+}
