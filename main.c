@@ -1,7 +1,5 @@
 #define _POSIX_C_SOURCE 200809L
 // For POSIX.1-2008 functions like sigaction
-#define _XOPEN_SOURCE 700
-// Often implies _POSIX_C_SOURCE and other features
 
 #include <errno.h>
 #include <netinet/in.h>
