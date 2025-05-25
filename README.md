@@ -17,18 +17,18 @@ HTTP-C is a lightweight, modular HTTP/1.1 server implemented in C. It's designed
 
 ## Features
 
-*   **HTTP/1.1 GET Request Handling:** Primarily processes `GET` requests.
-*   **Response Codes Supported:**
-    *   **`200 OK`**: For successful requests to the root path (`/`) and the dynamic echo endpoint (`/echo/<message>`).
-    *   **`400 Bad Request`**: Sent if the incoming HTTP request is malformed or cannot be parsed.
-    *   **`404 Not Found`**: Returned for `GET` requests to routes not explicitly handled by the server (i.e., anything other than `/` or `/echo/`).
-    *   **`405 Method Not Allowed`**: Sent for any HTTP method other than `GET`. Includes an `Allow: GET` header.
-    *   **`500 Internal Server Error`**: Generated if a server-side error occurs, such as memory allocation failure during response construction.
-*   **Echo Endpoint (`/echo/<message>`):** Dynamically generates a `200 OK` response, echoing back the `<message>` provided in the path. This demonstrates basic dynamic content generation.
-*   **Graceful Shutdown:** Implements a `SIGINT` (Ctrl+C) signal handler for clean server termination, ensuring resources are properly released.
-*   **Structured Request Parsing:** Parses incoming HTTP request lines into a structured format (method, route, HTTP version, and arguments).
-*   **Modular Design:** Code is organized into logical modules (headers and source files) for improved readability, maintainability, and separation of concerns.
-*   **Out-of-Source Builds:** Compiled object files and the final executable are placed in a separate `build/` directory, keeping the source tree clean.
+- **HTTP/1.1 GET Request Handling:** Primarily processes `GET` requests.
+- **Response Codes Supported:**
+  - **`200 OK`**: For successful requests to the root path (`/`) and the dynamic echo endpoint (`/echo/<message>`).
+  - **`400 Bad Request`**: Sent if the incoming HTTP request is malformed or cannot be parsed.
+  - **`404 Not Found`**: Returned for `GET` requests to routes not explicitly handled by the server (i.e., anything other than `/` or `/echo/`).
+  - **`405 Method Not Allowed`**: Sent for any HTTP method other than `GET`. Includes an `Allow: GET` header.
+  - **`500 Internal Server Error`**: Generated if a server-side error occurs, such as memory allocation failure during response construction.
+- **Echo Endpoint (`/echo/<message>`):** Dynamically generates a `200 OK` response, echoing back the `<message>` provided in the path. This demonstrates basic dynamic content generation.
+- **Graceful Shutdown:** Implements a `SIGINT` (Ctrl+C) signal handler for clean server termination, ensuring resources are properly released.
+- **Structured Request Parsing:** Parses incoming HTTP request lines into a structured format (method, route, HTTP version, and arguments).
+- **Modular Design:** Code is organized into logical modules (headers and source files) for improved readability, maintainability, and separation of concerns.
+- **Out-of-Source Builds:** Compiled object files and the final executable are placed in a separate `build/` directory, keeping the source tree clean.
 
 ## Project Structure
 
@@ -183,15 +183,17 @@ You can interact with the server using a web browser or a command-line tool like
 ## Browser Output Examples
 
 Here's how the server responses might look in a web browser.
-*(Note: Browsers may render plain text differently. These screenshots are illustrative.)*
+_(Note: Browsers may render plain text differently. These screenshots are illustrative.)_
 
 1.  **Root Path (`http://localhost:42069/`):**
     The browser will typically display the raw status line if no HTML content is provided.
+
     ```
     HTTP/1.1 200 OK
     ```
+
     ![Browser Output for Root Path](assets/browser_root_output.png)
-    *Image of the output "HTTP/1.1 200 OK" for the root path*
+    _Image of the output "HTTP/1.1 200 OK" for the root path_
 
 2.  **Echo Endpoint (`http://localhost:42069/echo/HTTP-C_Says_Hello_!!!`):**
     The browser will display the echoed text.
@@ -199,14 +201,14 @@ Here's how the server responses might look in a web browser.
     HTTP-C_Says_Hello_!!!
     ```
     ![Browser Output for Echo Path](assets/browser_echo_output.png)
-    *An Image of the output body with text "HTTP-C_Says_Hello_!!!".*
+    _An Image of the output body with text "HTTP-C*Says_Hello*!!!"._
 
 ## Makefile Details
 
 The `Makefile` automates the build process and is configured for the project's structure:
 
 - **`CFLAGS`**: Includes essential compiler flags:
-  - `-Wall -Wextra -pedantic -std=c17`: For strict warnings and C17 standard compliance.
+  - `-Wall -Wextra -pedantic -std=c11`: For strict warnings and C11 standard compliance.
   - `-D_POSIX_C_SOURCE=200809L`: To enable POSIX.1-2008 features.
   - `-Iinclude`: Instructs the compiler to search for header files in the `include/` directory.
 - **`SRC_DIR`, `INC_DIR`, `BUILD_DIR`**: Variables defining the source, include, and build directories.

@@ -1,5 +1,3 @@
-# Makefile
-
 CC = gcc
 # -Iinclude tells the compiler to look for headers in the 'include' directory
 CFLAGS = -Wall -Wextra -pedantic -std=c11 -D_POSIX_C_SOURCE=200809L -Iinclude
