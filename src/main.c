@@ -42,7 +42,7 @@ int main() {
   while (keep_running) {
     int client_fd = handle_accept(server_fd);
     if (!keep_running) {
-      fprintf(stderr, "Server is shutting down. Exiting accept loop.\n");
+      // fprintf(stderr, "Server is shutting down. Exiting accept loop.\n");
       break; // Exit the loop if a signal was received
     }
 
