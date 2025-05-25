@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -Wall -Wextra -pedantic -std=c11
+CFLAGS = -Wall -Wextra -pedantic -std=c17
 TARGET = http_server
 SRC = main.c
 
