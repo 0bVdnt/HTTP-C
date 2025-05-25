@@ -14,4 +14,3 @@ build/           # The entire build directory
 *.swp            # Vim swap files
 *~               # Emacs backup files
 # Add other editor/IDE specific files as needed
-
